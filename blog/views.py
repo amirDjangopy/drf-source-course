@@ -1,8 +1,8 @@
-from typing import Any
-from django.db.models.query import QuerySet
+from django.shortcuts import get_object_or_404
+from django.db import models
 from django.shortcuts import render
 from .models import Article
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 # Create your views here.
@@ -10,3 +10,10 @@ from django.views.generic import ListView
 class ArticleList(ListView):
     def get_queryset(self):
         return Article.objects.filter(status=True)
+
+class ArticleDetail(DetailView):
+    def get_object(self):
+        return get_object_or_404(
+            Article.objects.filter(status=True),
+            pk=self.kwargs.get("pk")
+        )
