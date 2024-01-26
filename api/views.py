@@ -33,10 +33,3 @@ class UserDetail(RetrieveUpdateDestroyAPIView):
     permission_classes = (IsSuperUser ,)
     
 
-# class RevokeToken(APIView):
-#     permission_classes = (IsAuthenticated ,)
-    
-#     def delete(self, request):
-#         request.auth.delete()
-#         return Response(status=204)
-    

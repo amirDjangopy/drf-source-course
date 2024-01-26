@@ -44,11 +44,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken', 
     
-    'dj_rest_auth',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'dj_rest_auth.registration',
+    # 'dj_rest_auth',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'dj_rest_auth.registration',
     
 ]
 
@@ -142,7 +142,8 @@ REST_FRAMEWORK = {
         'api.permissions.IsStaffOrReadOnly',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+            'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
 
