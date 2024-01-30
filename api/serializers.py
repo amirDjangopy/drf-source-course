@@ -8,6 +8,13 @@ class ArticleSerialisers(serializers.ModelSerializer):
         model = Article
         fields = "__all__"
         
+    def validate_title(self, value):
+        filter_list = ['js', "PHP", "laravel"]
+        
+        for i in filter_list:
+            if i in value:
+                raise serializers.ValidationError("این کلمات شامل نمیشوند {}".format(i))
+        
 
 class UserSerialisers(serializers.ModelSerializer):
     class Meta:

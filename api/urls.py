@@ -10,7 +10,7 @@ router.register('articles', ArticleViewSet, basename="articles")
 router.register('users', UserViewSet, basename="users")
 
 
-# urlpatterns = router.urls
+# urlpatterns = router.urls حالت پیشفرض
 
 urlpatterns = [
     path("", include(router.urls)),

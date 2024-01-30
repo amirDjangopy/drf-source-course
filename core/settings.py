@@ -43,13 +43,12 @@ INSTALLED_APPS = [
     
     'rest_framework',
     'rest_framework.authtoken', 
-    'django_filters'
+    'django_filters',
     
-    # 'dj_rest_auth',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'dj_rest_auth.registration',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
     
 ]
 
@@ -147,11 +146,17 @@ REST_FRAMEWORK = {
             'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
      'DEFAULT_FILTER_BACKENDS': [
-        'django_filters.rest_framework.DjangoFilterBackend'
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+
     ]
 }
 
 
 SITE_ID = 1
+REST_USE_JWT = True
+JWT_AUTH_COOKIE = 'access'
+JWT_AUTH_REFRESH_COOKIE = 'refresh'
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
