@@ -3,7 +3,13 @@ from blog.models import Article
 from django.contrib.auth import get_user_model
 
 
+class AuthorSerialisers(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ["id", "username", "first_name", "last_name"]
+
 class ArticleSerialisers(serializers.ModelSerializer):
+    author = AuthorSerialisers()
     class Meta:
         model = Article
         fields = "__all__"
