@@ -56,3 +56,4 @@ class UserViewSet(ModelViewSet):
      serializer_class = UserSerialisers
      permission_classes = (IsSuperUser,)
 
+
